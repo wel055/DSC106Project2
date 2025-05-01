@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DSC 106 · Project 2 Report</title>
+<style>
+  body       { font-family: system-ui,  sans-serif; margin: 2rem; line-height: 1.5;}
+  img        { max-width: 100%; height: auto; border: 1px solid #ddd; }
+  h1, h2, h3 { color: #003366; margin-top: 2.2rem;}
+  ul         { margin-top: 0.3rem; }
+  li         { margin-bottom: 0.35rem; }
+  code       { background:#f4f4f4; padding:0 3px; border-radius:3px;}
+  table      { border-collapse: collapse; }
+  th, td     { padding: 6px 10px; border: 1px solid #ccc; }
+  .score     { font-weight: bold; }
+  .container { max-width: 900px; margin: 0 auto; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Persuasive or Deceptive Visualization?</h1>
+
+<h2>Proposition</h2>
+<p><strong>Claim to evaluate:</strong> <em>“The abortion restrictions in place by 2017 effectively reduced abortions.”</em></p>
+
+<hr>
+
+<h2>Figure 1 – FOR the proposition</h2>
+
+<figure style="border:1px solid #ccc;">
+  <img src="support.png" alt="Grouped bar chart">
+  <figcaption style="background:#f6f7f9; padding:6px 10px;">
+    <strong>Figure 1:</strong> Supportive-policy states show average gains in
+    clinics (+5 %) and abortion rates (+4 %) versus almost no change in hostile states.
+  </figcaption>
+</figure>
+
+<h3>Key design decisions &amp; scores</h3>
+<ul>
+  <li><span class="score">-1.5  </span>Collapsed policy tiers to <code>Supportive</code> vs <code>Hostile</code> — amplifies mean gap, hides nuance. (Supportive state remain supportive, hostile and extremely hostile states collapsed to hostile)</li>
+  <li><span class="score">+1.5 </span>Side-by-side bars share a common quantitative scale; viewer instantly sees both metrics rise more in supportive states.</li>
+  <li><span class="score">+1.0 </span>Color pair (orange = rate, blue = clinics) is color-blind safe and semantically distinct.</li>
+  <li><span class="score">-0.5 </span>Headline states conclusion up-front; frames interpretation before scrutiny.</li>
+  <li><span class="score">-1.0 </span>No variability cues (error bars/box); averaging masks wide state-level spread. Mean skewed towards states with extreme policies (even these states might have less populations).</li>
+</ul>
+
+<hr>
+
+<h2>Figure 2 – AGAINST the proposition</h2>
+
+<figure style="border:1px solid #ccc;">
+  <img src="against.png" alt="Scatter plot with restriction gradient">
+  <figcaption style="background:#f6f7f9; padding:6px 10px;">
+    <strong>Figure 2:</strong> Change in abortion rate is scattered across the
+    full restriction spectrum; heavily restricted states (dark red) move both up
+    and down, suggesting no clear policy effect.
+  </figcaption>
+</figure>
+
+<h3>Key design decisions &amp; scores</h3>
+<ul>
+  <li><span class="score">-0.5 </span>Red-tone encode # restrictions — draws eye to heavily restricted states.</li>
+  <li><span class="score">+1.0 </span>Dashed blue OLS line retains statistical honesty; gentle styling keeps focus on dispersion.</li>
+  <li><span class="score">0.0 </span>Annotated Missouri (–100 %) and Oklahoma (+45 %)—identical severity, opposite outcomes—undermines causal claim.</li>
+  <li><span class="score">+1.5 </span>Subtitle decodes encoding (“darker = more restrictions”) — transparency. Added black border, let the reader notice state with less retrictions (lighter dots).</li>
+</ul>
+
+<hr>
+
+<h2>Final Reflection</h2>
+<p>
+Crafting paired visuals for and against a single claim laid bare how small analytical
+or stylistic tweaks alter the reader’s takeaway. The bar chart felt almost neutral 
+—just aggregate, colour, headline—yet that simplicity masked a trap. 
+Because I averaged every hostile-policy state into one number, it glossed over how wildly 
+individual experiences diverged. Two states with the same 2017 restriction count illustrate 
+the danger: Oklahoma’s abortion rate rose by about +45 percent while Missouri’s decreased by 
+nearly 100 percent. Averaging those opposites produced a neat middle value that looked like 
+steady “no change,” creating an illusion of tidy consensus that simply is not there.
+The scatter demanded more nuance; the pattern looked not obvious which pursuade the audiences 
+that the abortion restrictions in 2017 are not effective. I encoded restriction
+severity twice and surfaced named outliers. That dual encoding turned “messy cloud” into
+a pointed contradiction of policy efficacy.
+Level and number of restrictions are taken from the Guttmacher Institute’s “State Abortion Policy” scorecard, 2017 edition<sup>1</sup>
+<br> <small><sup>1</sup> Restriction counts and policy classifications: Guttmacher Institute, “<a href="https://www.guttmacher.org/article/2018/01/policy-trends-states-2017" target="_blank">Policy Trends in the States, 2017</a>,” Appendix table of ten flagship abortion restrictions.</small>
+</p>
+<p>
+I learned that <strong>ethical visualization is a practice of selective omission</strong>.
+Since no single view can show everything, we must decide what to collapse, what to
+highlight, and what to annotate. Acceptable persuasion, to me, means the underlying
+data remain accessible and encodings fully disclosed; the audience can reconstruct
+an alternate view if they wish. Choices cross into “misleading” when scale truncation,
+category lumping, or palette skew prevent an informed reader from seeing the counter-evidence
+without re-analysing the raw numbers. The hardest boundary to police is intent:
+a subtle design that genuinely clarifies for one audience can manipulate another.
+The safest safeguard is multiplicity—showing at least one view that could falsify
+your own claim. That is why I deliver these two opposing plots side-by-side.
+</p>
+
+</div>
+</body>
+</html>
